@@ -3,7 +3,7 @@ import urllib.parse
 import requests
 
 main_api = "https://www.mapquestapi.com/directions/v2/route?"
-key = "oCzbrNGIbHnoGwLhXCuJVkkUsaMr9QoA"
+key = "oCzbrNGIbHnoGwLhXCuJVkkUsaMr9QoA" 
 
 while True:
     orig = input("Starting Location: ")
@@ -19,6 +19,8 @@ while True:
     print("URL: " + (url))
     json_data = requests.get(url).json()
     json_status = json_data["info"]["statuscode"]
+    
+    #Metric Option 1
     if (choice == 'u'):
         if json_status == 0:
             print("API Status: " + str(json_status) + " = A successful route call.\n")
@@ -44,6 +46,7 @@ while True:
             print("For Staus Code: " + str(json_status) + "; Refer to:")
             print("https://developer.mapquest.com/documentation/directions-api/status-codes")
             print("************************************************************************\n")
+    #Metric Option 2
     elif (choice == 'm'):
         if json_status == 0:
             print("API Status: " + str(json_status) + " = A successful route call.\n")
